@@ -1,0 +1,20 @@
+<div class="row">
+  <ng-container *ngFor="let afooditem of fooditems; let i=index">
+    <div class="col">
+      <div class="card" style="width: 15rem;">
+        <img class="card-img-top" [src]="afooditem.imageUrl" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{afooditem.title}}</h5>
+          <p class="card-text">{{afooditem.price | currency:'USD':true}}</p>
+        </div>
+        <div class="card-footer">
+          <button (click) ="addToCart(afooditem)"
+          class="btn btn-primary">Add to Cart</button>
+        </div>
+    </div>
+    </div>
+    <div *ngIf="(i+1) % 4 == 0" class ="w-100"></div>
+  </ng-container>
+
+
+

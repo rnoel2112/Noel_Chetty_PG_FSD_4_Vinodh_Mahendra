@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "kitchenstory-23d2a": {
+      "hosting": {
+        "kitchen-story": [
+          "kitchenstory-23d2a"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+<br>
+<div>
+<!-- <form #f="ngForm" (ngSubmit)="save(f.value)"> -->
+<form (ngSubmit)="saveData()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input required id="title" ngModel name="title" type="text" class="form-control" value="{{foodFormData.title}}" [(ngModel)]="foodFormData.title">
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <div class ="input-group" >
+      <input required [min]="0"  id="price" ngModel name="price" type="number" class="form-control" value="{{foodFormData.price}}" [(ngModel)]="foodFormData.price">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="imageUrl">Image URL</label>
+    <input ngModel name="imageUrl" id="imageUrl" type="text" class="form-control" value="{{foodFormData.imageUrl}}" [(ngModel)]="foodFormData.imageUrl">
+  </div>
+
+  <div class="form-group">
+    <input  class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Save"   *ngIf="foodFormData.id==null">
+    &nbsp;
+    <input  class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Update" *ngIf="foodFormData.id!=null">
+    &nbsp;
+    <button class="btn btn-outline-success my-2 my-sm-0" (click)= "clear()" type="button" >Cancel</button>
+  </div>
+</form>
+</div>
+
+<div class="foodItemtable">
+  <table class="table">
+      <tr>
+          <th>Title</th>
+          <th>Price</th>
+          <th>imageUrl</th>
+          <th></th>
+          <th></th>
+      </tr>
+      <tr *ngFor="let afooditem of fooditems">
+          <td> {{ afooditem.title }} </td>
+          <td> {{ afooditem.price }} </td>
+          <td> {{ afooditem.imageUrl }} </td>
+          <td> <button (click)="editData(afooditem) ">Edit</button> </td>
+          <td> <button (click)="deleteData(afooditem) ">Delete</button> </td>
+      </tr>
+
+  </table>
+
+</div>
+
+
